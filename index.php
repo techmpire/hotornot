@@ -1,4 +1,7 @@
 <?php
+    
+    session_cache_limiter(false);
+    session_start();
 
     require_once 'config.php';
     require_once 'vendor/autoload.php';
@@ -32,11 +35,60 @@
     );
     //$app->view->parserExtensions = array(new \Slim\Views\TwigExtension());
     
-    // Routes
+    // Routes:
+    // Home
+    $app->get('/', function () use ($app) {
+        $app->render('home.html');
+    });
+    
     $app->get('/home', function () use ($app) {
-        $app->render('home.html', array(
-            'test' => 'ok'
-        ));
+        $app->render('home.html');
+    });
+    
+    $app->post('/home', function () use ($app) {
+        $post = $app->request->post();
+        $user = new User();
+        $user->first_name = $post['first_name'];
+        $user->last_name = $post['last_name'];
+        $user->email = $post['email'];
+        $user->save();
+        $_SESSION['digitalx_hash'] = $user->hash;
+        $app->response->redirect('/refer');
+    });
+    
+    // Refer
+    $app->get('/refer', function () use ($app) {
+        $app->render('refer.html');
+    });
+    
+    $app->post('/refer', function () use ($app) {
+    
+        $friends = explode(',', $app->request->post('friends'));
+        $user = User::find_by_hash($_SESSION['digitalx_hash']);
+        
+        if (!is_numeric($user->id)) {
+            exit('user hash not found');
+        } else {
+            foreach ($friends as $friend) {
+                $friend = new Friend(array(
+                    'user_id' => $user->id,
+                    'friend_email' => trim($friend)
+                ));
+                $friend->save();
+            }
+            
+        }
+        //$app->response->redirect('/social');
+    });
+    
+    $app->get('/confirm/:hash', function ($hash) use ($app) {
+    
+        $user = User::find_by_hash($hash);
+        if (is_object($user)) {
+            $user->email_confirmed = 1;
+            $user->save();
+        }
+        //$app->response->redirect('/social');
     });
     
     $app->run();

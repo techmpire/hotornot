@@ -1,5 +1,19 @@
 {% extends "template.html" %}
 
 {% block content %}
-    home {{ test }}
+    <form role="form" method="post" action="/home">
+      <div class="form-group">
+        <label for="exampleInputPassword1">First name</label>
+        <input type="text" name="first_name" class="form-control" id="exampleInputPassword1" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Last name</label>
+        <input type="text" name="last_name" class="form-control" id="exampleInputPassword1" placeholder="">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
 {% endblock %}

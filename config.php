@@ -1,8 +1,8 @@
 <?php
 
     $fig = array(
-        'user' => '',
-        'pass' => '',
-        'host' => '',
-        'db' => ''
+        'user' => 'root',
+        'pass' => 'root',
+        'host' => 'localhost',
+        'db' => 'digitalx'
     );
