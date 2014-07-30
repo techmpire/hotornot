@@ -1,19 +1,34 @@
 {% extends "template.html" %}
 
 {% block content %}
-    <form role="form" method="post" action="/home">
-      <div class="form-group">
-        <label for="exampleInputPassword1">First name</label>
-        <input type="text" name="first_name" class="form-control" id="exampleInputPassword1" placeholder="">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Last name</label>
-        <input type="text" name="last_name" class="form-control" id="exampleInputPassword1" placeholder="">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+    
+    <div class="form-container">
+        <div style="padding:30px 50px 20px 30px">
+            <form class="form-horizontal" role="form" method="post">
+              <div class="form-group">
+                <label for="firstname" class="col-sm-3 control-label">First name</label>
+                <div class="col-sm-9">
+                  <input type="text" name="first_name" class="form-control" id="firstname" placeholder="">
+                </div>
+              </div>
+               <div class="form-group">
+                <label for="lastname" class="col-sm-3 control-label">Last name</label>
+                <div class="col-sm-9">
+                  <input type="text" name="last_name" class="form-control" id="lastname" placeholder="">
+                </div>
+              </div>
+               <div class="form-group">
+                <label for="email" class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-9">
+                  <input type="text" name="email" class="form-control" id="email" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                  <button type="submit" class="btn btn-success btn-block">Sign me up</button>
+                </div>
+              </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}

@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>DigitalX - Your life is digital. Your money should be too.</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/vendor/twitter/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -25,9 +25,10 @@
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
+    <div class="navbar navbar-fixed-top" role="navigation" style="background:#fff">
+      <div class="container" style="text-align:center;padding:20px 0">
+        <img src="/public/img/logo.png" border=0 title="" alt="">
+        <!--<div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -42,22 +43,69 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>-->
       </div>
     </div>
-
-    <div class="container">
-
-      <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-        {% block content %}
-        {% endblock %}
+    <div id="banner">
+        <div class="container" style="position:relative">
+            <div id="chevron"></div>
+            <div id="main_heading">
+                <h1>Your life is digital.</h1>
+                <h1>Your money should be too.</h1>
+            </div>
+            <div id="sub_heading">
+                <h2>Discover how we are changing the future of payments.</h2>
+                <h2 class="less_top_margin">Pre-enroll now and earn bitcoins.</h2>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="width:950px">
+        <h1 class="text-center">DigitalX is:</h1>
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <img src="/public/img/mobile.png" border=0 title="" alt="">
+                <p class="lead">
+                    A <b>mobile application</b> to<br/> store, manage and spend<br/> your bitcoins
+                </p>
+            </div>
+            <div class="col-sm-4 text-center">
+                <img src="/public/img/cards.png" border=0 title="" alt="">
+                <p class="lead">
+                    A <b>debit card</b> that<br/> allows you to make<br/> purchases anywhere
+                </p>
+            </div>
+            <div class="col-sm-4 text-center">
+                <img src="/public/img/web.png" border=0 title="" alt="">
+                <p class="lead">
+                    A <b>website</b> for<br/> convenient access<br/> to your funds from<br/> your home or office
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="gray_section">
+        <div class="container">
+          <div class="text-center">
+            <h1>How to earn your bitcoins:</h1>
+            <p class="lead">
+                Use this document as a way to quickly start any new project.<br> 
+                All you get is this text and a mostly barebones HTML document.
+            </p>
+          </div>
+          {% block content %}
+          {% endblock %} 
+          <br/>
+          <br/>
+             
+        </div>
+    </div>
+    
+    <!--
+<div class="footer">
+      <div class="container">
+        <p class="text-muted">Place sticky footer content here.</p>
       </div>
-
-    </div><!-- /.container -->
-
-
+    </div>
+-->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
