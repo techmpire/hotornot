@@ -5,13 +5,13 @@ html {
 
 body {
   padding-top: 50px;
-  /* margin-bottom: 60px; */
+  color: #414042;
 }
 
 .form-container {
     background:#007fa9 url(/public/img/whiteX.png) no-repeat left top;
     margin: 0 auto;
-    border-radius: 3px;
+    border-radius: 4px;
     width:500px;
 }
 
@@ -20,18 +20,14 @@ label {
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
+  padding: 50px 0;
   text-align: center;
 }
 
 h1 {
     font-weight: bold;
     font-size: 48px;
+    color: #414042;
 }
 
 #banner {
@@ -75,3 +71,12 @@ h2.less_top_margin {
 .gray_section {
     background: #f7f7f7;
 }
+
+.form-control {
+    border-radius: 0;
+}
+
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {   
+border-color: #007fa9;
+box-shadow: 0;
+outline: 0 none;}
