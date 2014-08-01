@@ -6,7 +6,8 @@
         "twitter/bootstrap": "v3.2.0",
         "frameworks/jquery": "2.1.0",
         "swiftmailer/swiftmailer": "v5.2.1",
-        "php-activerecord/php-activerecord": "v1.1.2"
+        "php-activerecord/php-activerecord": "v1.1.2",
+        "campaignmonitor/createsend-php": "4.0.1"
     },
     "autoload": {
         "classmap": ["models/"]
