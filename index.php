@@ -6,7 +6,6 @@
     require_once 'config.php';
     require_once 'vendor/autoload.php';
     
-    // ActiveRecord
     ActiveRecord\Config::initialize(function($cfg) {
         global $fig;
         $cfg->set_model_directory('models');
@@ -15,16 +14,13 @@
         ));
     });
     
-    // Slim
     $app = new \Slim\Slim();
     
-    // Set the template path
     $app->config(array(
         'debug' => true,
         'templates.path' => 'templates/'
     ));
     
-    // Prepare view
     $app->view(new \Slim\Views\Twig());
     $app->view->parserOptions = array(
         'charset'             => 'utf-8',
@@ -33,7 +29,6 @@
         'strict_variables'    => false,
         'autoescape'          => true
     );
-    $app->view->parserExtensions = array(new \Slim\Views\TwigExtension());
     
     $app->get('/', function () use ($app) {
         $app->render('home.html');
@@ -59,11 +54,17 @@
     });
     
     $app->get('/refer', function () use ($app) {
+        
+        if (empty($_SESSION['digitalx_hash'])) {
+            $app->response->redirect('/home');
+            exit;
+        }
+        
         $app->render('refer.html');
     });
     
     $app->post('/refer', function () use ($app) {
-    
+        
         if (empty($_SESSION['digitalx_hash'])) {
             $app->response->redirect('/home');
             exit;

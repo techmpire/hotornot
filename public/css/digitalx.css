@@ -9,7 +9,7 @@ body {
 }
 
 .form-container {
-    background:#007fa9 url(/public/img/whiteX.png) no-repeat left top;
+    background:#013f54 url(/public/img/whiteX.png) no-repeat left top;
     margin: 0 auto;
     border-radius: 4px;
     width:500px;
@@ -20,20 +20,27 @@ label {
 }
 
 .footer {
-  padding: 50px 0;
+  padding: 50px 0 100px 0;
   text-align: center;
 }
 
 h1 {
     font-weight: bold;
-    font-size: 48px;
+    font-size: 60px;
     color: #414042;
+}
+
+h1.blue {
+    color:#007FA9;
+    margin-top:55px;
+    margin-bottom:30px;
+    font-size: 60px;
 }
 
 #banner {
     position:relative;
-    height:507px;
-    background:#007fa8 url(/public/img/banner-bg.jpg) no-repeat center top;
+    height:500px;
+    background:#013f54 url(/public/img/header22.jpg) no-repeat center top;
     text-align: center;
     color:#fff;
 }
@@ -48,7 +55,7 @@ h1 {
 }
 
 #banner #sub_heading {
-    padding-top:50px;
+    padding-top:10px;
 }
 
 h2 {
@@ -62,7 +69,7 @@ h2.less_top_margin {
 #chevron {
     position: absolute;
     left:560px;
-    top:460px;
+    top:450px;
     width:51px;
     height:30px;
     background:url(/public/img/chevron_down.png) no-repeat;
@@ -80,3 +87,11 @@ textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[ty
 border-color: #007fa9;
 box-shadow: 0;
 outline: 0 none;}
+
+p.lead {
+    margin-bottom:40px
+}
+
+.btn {
+    border-radius: 0;
+}
