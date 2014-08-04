@@ -2,47 +2,56 @@
 
 {% block content %}
     <div class="text-center">
-        <h1 class="blue">How to earn your bitcoins:</h1>
+        <h1 class="blue">How to receive your free bitcoins</h1>
         <p class="lead">
-            <!--Pre-enroll now to be first to have access to digitalX, launching in Fall 2014.<br> 
-            You'll enjoy rock solid security, easy access to your funds, and convenience<br>
-            unlike anything else! Refer your friends to earn more.
-            -->
-            <b>Pre-enroll now</b> to be first to have access to digitalX. <i>We expect to go live<br/>
-            with our “beta” product during the fall of 2014.</i> You'll enjoy rock solid security,<br/>
-             easy access to your funds, and convenience unlike anything else! <br/>
-             Refer your friends to earn more.
+            Pre-enroll now to be first to have access to digitalX, launching towards the<br/> end of 2014. You'll enjoy rock solid security and ease of use unlike anything<br/> else. Fill out the fields below to get free bitcoins*
         </p>
     </div>
     <div class="form-container">
         <div style="padding:30px 50px 20px 30px">
             <form class="form-horizontal" role="form" method="post" action="/home">
               <div class="form-group">
-                <label for="firstname" class="col-sm-5 control-label">Your First name*</label>
-                <div class="col-sm-7">
+                <label for="firstname" class="col-sm-4 control-label">Your First name*</label>
+                <div class="col-sm-5">
                   <input type="text" name="first_name" class="form-control" id="firstname" placeholder="enter your first name">
                 </div>
+                <div class="col-sm-3 satoshi-info">
+                    <small>Get 10 satoshis**</small>
+                </div>
               </div>
                <div class="form-group">
-                <label for="lastname" class="col-sm-5 control-label">Your Last name*</label>
-                <div class="col-sm-7">
+                <label for="lastname" class="col-sm-4 control-label">Your Last name*</label>
+                <div class="col-sm-5">
                   <input type="text" name="last_name" class="form-control" id="lastname" placeholder="enter your last name">
                 </div>
+                <div class="col-sm-3 satoshi-info">
+                    <small>Get 10 satoshis**</small>
+                </div>
               </div>
-               <div class="form-group">
-                <label for="email" class="col-sm-5 control-label">Your Email*</label>
-                <div class="col-sm-7">
+               <div class="form-group" style="margin-bottom:0">
+                <label for="email" class="col-sm-4 control-label">Your Email*</label>
+                <div class="col-sm-5">
                   <input type="text" name="email" class="form-control" id="email" placeholder="enter your email address">
+                  <small class="help-block">Enter a valid email address as we will need to send you a confirmation email</small>
+                </div>
+                <div class="col-sm-3 satoshi-info">
+                    <small>Get 10 satoshis**</small>
                 </div>
               </div>
+
+              
               <div class="form-group">
-                <label for="email" class="col-sm-5 control-label">Your Mobile Phone</label>
-                <div class="col-sm-7">
+                <label for="email" class="col-sm-4 control-label">Your Mobile Phone</label>
+                <div class="col-sm-5">
                   <input type="text" name="phone" class="form-control" id="phone" placeholder="enter your mobile number">
+                  <small class="help-block">Your mobile phone number will be required to claim your bitcoins</small>
+                </div>
+                <div class="col-sm-3 satoshi-info">
+                    <small>Get 10 satoshis**</small>
                 </div>
               </div>
               <div class="form-group">
-                <div class="col-sm-offset-5 col-sm-7">
+                <div class="col-sm-offset-4 col-sm-5">
                   <button type="submit" class="btn btn-success btn-lg btn-block">Sign me up <span class="glyphicon glyphicon-chevron-right"></span></button>
                 </div>
               </div>
