@@ -6,6 +6,11 @@
         <p class="lead">
             We'd like to meet your friends! Refer a friend to digitalX and you'll both earn<br/> bitcoins if they sign up.
         </p>
+        {% if error != '' %}
+            <div style="width:640px;margin:0 auto">
+                <div class="alert alert-danger">{{ error }}</div>
+            </div>
+        {% endif %}
     </div>
     <div class="form-container" style="width:640px">
         <div style="padding:30px 50px 20px 30px">

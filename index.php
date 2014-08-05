@@ -121,62 +121,70 @@
             exit;
         }
         
-        if (sizeof($app->request->post('names')) == 0 || sizeof($app->request->post('emails')) == 0) {
-            $app->response->redirect('/refer');
-            exit;
-        }
+        $names = array_filter($app->request->post('names'));
+        $emails = array_filter($app->request->post('emails'));
         
-        $user = User::find_by_hash($_SESSION['digitalx_hash']);
-        
-        if (!is_numeric($user->id)) {
-            exit('user hash not found');
+        if (sizeof($names) == 0 || sizeof($emails) == 0) {
+            
+            $app->render('refer.html', array(
+                'error' => 'Please enter at least one name and email to proceed'
+            ));
+            
         } else {
         
-            foreach ($app->request->post('names') as $key => $name) {
-                
-                $email = $app->request->post('emails')[$key];
-                
-                if ($name != '' and $email != '') {
-                
-                    $friend = new Friend(array(
-                        'user_id' => $user->id,
-                        'name' => trim($name),
-                        'email' => trim($email)
-                    ));
+            $user = User::find_by_hash($_SESSION['digitalx_hash']);
+            
+            if (!is_numeric($user->id)) {
+                exit('user hash not found');
+            } else {
+            
+                foreach ($names as $key => $name) {
                     
-                    $friend->save();
+                    $email = $emails[$key];
                     
-                    // Add to campaign monitor
-                    require_once 'vendor/campaignmonitor/createsend-php/csrest_subscribers.php';
-                    $auth = array('api_key' => 'd76e1c1b93ddb38142686f0d03167314');
-                    $wrap = new CS_REST_Subscribers('96de291d473755eb0495f6c2faa09666', $auth);
+                    if ($name != '' and $email != '') {
                     
-                    $result = $wrap->add(array(
-                        'EmailAddress' => trim($email),
-                        'Name' => trim($name),
-                        'CustomFields' => array(
-                            array(
-                                'Key' => 'Friend ID',
-                                'Value' => $user->id
+                        $friend = new Friend(array(
+                            'user_id' => $user->id,
+                            'name' => trim($name),
+                            'email' => trim($email)
+                        ));
+                        
+                        $friend->save();
+                        
+                        // Add to campaign monitor
+                        require_once 'vendor/campaignmonitor/createsend-php/csrest_subscribers.php';
+                        $auth = array('api_key' => 'd76e1c1b93ddb38142686f0d03167314');
+                        $wrap = new CS_REST_Subscribers('96de291d473755eb0495f6c2faa09666', $auth);
+                        
+                        $result = $wrap->add(array(
+                            'EmailAddress' => trim($email),
+                            'Name' => trim($name),
+                            'CustomFields' => array(
+                                array(
+                                    'Key' => 'Friend ID',
+                                    'Value' => $user->id
+                                ),
+                                array(
+                                    'Key' => 'Friend name',
+                                    'Value' => $user->first_name . ' ' . $user->last_name
+                                ),
+                                array(
+                                    'Key' => 'Friend email',
+                                    'Value' => $user->email
+                                )
                             ),
-                            array(
-                                'Key' => 'Friend name',
-                                'Value' => $user->first_name . ' ' . $user->last_name
-                            ),
-                            array(
-                                'Key' => 'Friend email',
-                                'Value' => $user->email
-                            )
-                        ),
-                        'Resubscribe' => false
-                    ));
-                
+                            'Resubscribe' => false
+                        ));
+                    
+                    }
+                    
                 }
                 
+                $app->response->redirect('/thankyou');
+                    
             }
-            
-            $app->response->redirect('/thankyou');
-                
+        
         }
         
     });
@@ -184,16 +192,6 @@
     $app->get('/thankyou', function () use ($app) {
         $_SESSION['digitalx_hash'] = '';
         $app->render('thankyou.html');
-    });
-    
-    $app->get('/confirm/:hash', function ($hash) use ($app) {
-    
-        $user = User::find_by_hash($hash);
-        if (is_object($user)) {
-            $user->email_confirmed = 1;
-            $user->save();
-        }
-        //$app->response->redirect('/social');
     });
     
     $app->run();
