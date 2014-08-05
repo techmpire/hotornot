@@ -40,43 +40,68 @@
     
     $app->post('/home', function () use ($app) {
         
-        // validate...
+        $post = $app->request->post();
+        $user = User::find_by_email($post['email']);
+        
         // make sure no fields are blank
+        if ($post['first_name'] == '' || $post['last_name'] == '' || $post['email'] == '') {
+            
+            $app->render('home.html', array(
+                'post' => $post,
+                'error' => 'Please fill out all mandatory fields'
+            ));
+        
         // make sure email is valid
+        } elseif (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
+            
+            $app->render('home.html', array(
+                'post' => $post,
+                'error' => 'Please enter a valid email'
+            ));
+        
         // make sure user hasn't been signed up already
-        
-        $post               = $app->request->post();
-        $user               = new User();
-        $user->first_name   = trim($post['first_name']);
-        $user->last_name    = trim($post['last_name']);
-        $user->email        = trim($post['email']);
-        $user->phone        = trim($post['phone']);
-        $user->save();
-        
-        $_SESSION['digitalx_hash'] = $user->hash;
-        
-        // Add to campaign monitor
-        require_once 'vendor/campaignmonitor/createsend-php/csrest_subscribers.php';
-        $auth = array('api_key' => 'd76e1c1b93ddb38142686f0d03167314');
-        $wrap = new CS_REST_Subscribers('20ce29e6f724dbfe2f8a092fade79374', $auth);
-        
-        $result = $wrap->add(array(
-            'EmailAddress' => $user->email,
-            'Name' => $user->first_name . ' ' . $user->last_name,
-            'CustomFields' => array(
-                array(
-                    'Key' => 'Phone',
-                    'Value' => $user->phone
+        } elseif (is_object($user)) {
+            
+            $app->render('home.html', array(
+                'post' => $post,
+                'error' => 'A user with that email has already registered'
+            ));
+            
+        } else {
+            
+            $user               = new User();
+            $user->first_name   = trim($post['first_name']);
+            $user->last_name    = trim($post['last_name']);
+            $user->email        = trim($post['email']);
+            $user->phone        = trim($post['phone']);
+            $user->save();
+            
+            $_SESSION['digitalx_hash'] = $user->hash;
+            
+            // Add to campaign monitor
+            require_once 'vendor/campaignmonitor/createsend-php/csrest_subscribers.php';
+            $auth = array('api_key' => 'd76e1c1b93ddb38142686f0d03167314');
+            $wrap = new CS_REST_Subscribers('20ce29e6f724dbfe2f8a092fade79374', $auth);
+            
+            $result = $wrap->add(array(
+                'EmailAddress' => $user->email,
+                'Name' => $user->first_name . ' ' . $user->last_name,
+                'CustomFields' => array(
+                    array(
+                        'Key' => 'Phone',
+                        'Value' => $user->phone
+                    ),
+                    array(
+                        'Key' => 'Sign up IP',
+                        'Value' => $user->signup_ip_address
+                    )
                 ),
-                array(
-                    'Key' => 'Sign up IP',
-                    'Value' => $user->signup_ip_address
-                )
-            ),
-            'Resubscribe' => false
-        ));       
-
-        $app->response->redirect('/refer');
+                'Resubscribe' => false
+            ));       
+    
+            $app->response->redirect('/refer');
+        
+        }
         
     });
     

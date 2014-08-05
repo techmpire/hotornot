@@ -6,6 +6,11 @@
         <p class="lead">
             Pre-enroll now to be first to have access to digitalX, launching towards the<br/> end of 2014. You'll enjoy rock solid security and ease of use unlike anything<br/> else. Fill out the fields below to get free bitcoins*
         </p>
+        {% if error != '' %}
+            <div style="width:690px;margin:0 auto">
+                <div class="alert alert-danger">{{ error }}</div>
+            </div>
+        {% endif %}
     </div>
     <div class="form-container">
         <div style="padding:30px 50px 20px 30px">
@@ -13,7 +18,7 @@
               <div class="form-group">
                 <label for="firstname" class="col-sm-4 control-label">Your First name*</label>
                 <div class="col-sm-5">
-                  <input type="text" name="first_name" class="form-control" id="firstname" placeholder="enter your first name">
+                  <input type="text" name="first_name" class="form-control" id="firstname" placeholder="enter your first name" value="{{ post.first_name }}">
                 </div>
                 <div class="col-sm-3 satoshi-info">
                     <small>Get 10 satoshis**</small>
@@ -22,7 +27,7 @@
                <div class="form-group">
                 <label for="lastname" class="col-sm-4 control-label">Your Last name*</label>
                 <div class="col-sm-5">
-                  <input type="text" name="last_name" class="form-control" id="lastname" placeholder="enter your last name">
+                  <input type="text" name="last_name" class="form-control" id="lastname" placeholder="enter your last name" value="{{ post.last_name }}">
                 </div>
                 <div class="col-sm-3 satoshi-info">
                     <small>Get 10 satoshis**</small>
@@ -31,20 +36,18 @@
                <div class="form-group" style="margin-bottom:0">
                 <label for="email" class="col-sm-4 control-label">Your Email*</label>
                 <div class="col-sm-5">
-                  <input type="text" name="email" class="form-control" id="email" placeholder="enter your email address">
-                  <small class="help-block">Enter a valid email address as we will need to send you a confirmation email</small>
+                  <input type="text" name="email" class="form-control" id="email" placeholder="enter your email address" value="{{ post.email }}">
+                  <small class="help-block text-center">Enter a valid email address as we will need to send you a confirmation email</small>
                 </div>
                 <div class="col-sm-3 satoshi-info">
                     <small>Get 10 satoshis**</small>
                 </div>
               </div>
-
-              
               <div class="form-group">
                 <label for="email" class="col-sm-4 control-label">Your Mobile Phone</label>
                 <div class="col-sm-5">
-                  <input type="text" name="phone" class="form-control" id="phone" placeholder="enter your mobile number">
-                  <small class="help-block">Your mobile phone number will be required to claim your bitcoins</small>
+                  <input type="text" name="phone" class="form-control" id="phone" placeholder="enter your mobile number" value="{{ post.phone }}">
+                  <small class="help-block text-center">Your mobile phone number will be required to claim your bitcoins</small>
                 </div>
                 <div class="col-sm-3 satoshi-info">
                     <small>Get 10 satoshis**</small>
@@ -52,11 +55,21 @@
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-5">
-                  <button type="submit" class="btn btn-success btn-lg btn-block">Sign me up <span class="glyphicon glyphicon-chevron-right"></span></button>
+                    <button type="submit" class="btn btn-success btn-lg btn-block">
+                        Sign me up <span class="glyphicon glyphicon-chevron-right"></span>
+                    </button>
+                    <div class="satoshi-info text-center">
+                        <small>** A Satoshi is the smallest fraction of a bitcoin that can currently be sent.</small>
+                    </div>
                 </div>
               </div>
             </form>
         </div>
+    </div>
+    <div class="form-footer">
+        <small class="text-muted">
+            * Following the launch of digitalX, users will be credited their bitcoins upon completion of the pre-enrollment process and activation of their digitalX wallet.
+        </small>
     </div>
     {% include "footer.html" %}
 {% endblock %}

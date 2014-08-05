@@ -19,13 +19,21 @@ body {
     width:690px;
 }
 
+.form-footer {
+    margin: 0 auto;
+    width:690px;
+    padding-top:15px;
+    text-align: center;
+}
+
 label {
     color:#fff;
 }
 
 .footer {
-    padding: 50px 0 100px 0;
-    text-align: center;
+    margin: 0 auto;
+    width:690px;
+    padding: 50px 0 50px 0;
 }
 
 h1 {
@@ -36,10 +44,7 @@ h1 {
 
 h1.blue {
     color:#007FA9;
-    /*
-margin-top:55px;
-    margin-bottom:30px;
-*/
+    margin-top:30px;
     font-size: 40px;
 }
 
@@ -122,4 +127,9 @@ p.lead {
 
 .help-block {
     color:#b2c5c9;
+}
+
+.copyright {
+    padding-top: 10px;
+    padding-left:40px;
 }
