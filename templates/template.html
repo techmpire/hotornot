@@ -27,12 +27,12 @@
 
     <div id="banner">
         <div class="container">
-            <div id="chevron"></div>
+            <div id="chevron" class="hidden-xs hidden-sm"></div>
             <div class="row" style="padding-top:40px">
-                <div class="col-sm-5 text-right">
+                <div class="col-md-5 logo">
                     <a href="/"><img src="/public/img/logo.png" border=0 title="" alt=""></a>
                 </div>
-                <div class="col-sm-7">
+                <div class="col-md-7 heading">
                     <div id="main_heading">
                         <h1>Your life is digital.</h1>
                         <h1>Your money should be too.</h1>
@@ -47,8 +47,12 @@
     </div>
     
     <div class="container">
-      {% block content %}
-      {% endblock %}             
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>       
     </div>
 
     <!-- Bootstrap core JavaScript

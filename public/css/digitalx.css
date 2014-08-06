@@ -14,16 +14,16 @@ body {
 
 .form-container {
     background:#013f54 url(/public/img/whiteX.png) no-repeat left top;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     border-radius: 4px;
-    width:690px;
+    /* width:690px; */
 }
 
 .form-footer {
-    margin: 0 auto;
-    width:690px;
+    /* margin: 0 auto; */
+    /* width:690px; */
     padding-top:15px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 label {

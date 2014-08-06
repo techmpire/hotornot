@@ -4,7 +4,7 @@
     <div class="text-center">
         <h1 class="blue">How to receive your free bitcoins</h1>
         <p class="lead">
-            Pre-enroll now to be first to have access to digitalX, launching towards the<br/> end of 2014. You'll enjoy rock solid security and ease of use unlike anything<br/> else. Fill out the fields below to get free bitcoins*
+            Pre-enroll now to be first to have access to digitalX, launching towards the end of 2014. You'll enjoy rock solid security and ease of use unlike anything else. Fill out the fields below to get free bitcoins*
         </p>
         {% if error != '' %}
             <div style="width:690px;margin:0 auto">
@@ -12,6 +12,7 @@
             </div>
         {% endif %}
     </div>
+
     <div class="form-container">
         <div style="padding:30px 50px 20px 30px">
             <form class="form-horizontal" role="form" method="post" action="/home">
@@ -66,10 +67,12 @@
             </form>
         </div>
     </div>
-    <div class="form-footer">
+
+    <div class="text-center form-footer">
         <small class="text-muted">
             * Following the launch of digitalX, users will be credited their bitcoins upon completion of the pre-enrollment process and activation of their digitalX wallet.
         </small>
     </div>
+
     {% include "footer.html" %}
 {% endblock %}
