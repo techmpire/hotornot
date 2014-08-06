@@ -2,9 +2,10 @@
     
     session_cache_limiter(false);
     session_start();
-
-    require_once 'config.php';
     require_once 'vendor/autoload.php';
+    $app = new \Slim\Slim();
+    
+    require_once 'config.php';
     
     ActiveRecord\Config::initialize(function($cfg) {
         global $fig;
@@ -13,8 +14,6 @@
             'development' => 'mysql://' . $fig['user'] . ':' . $fig['pass'] . '@' . $fig['host'] . '/' . $fig['db']
         ));
     });
-    
-    $app = new \Slim\Slim();
     
     $app->config(array(
         'debug' => true,
