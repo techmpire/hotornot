@@ -60,6 +60,10 @@ h1.blue {
     font-weight:bold;
 }
 
+#main_heading {
+    text-align: center
+}
+
 #banner #main_heading h1 {
     font-size:34px;
     font-weight: bold;
@@ -79,12 +83,7 @@ h1.blue {
 }
 
 #chevron {
-    position: absolute;
-    left:560px;
-    top:230px;
-    width:45px;
-    height:26px;
-    background:url(/public/img/chevron.png) no-repeat;
+    padding-top:30px
 }
 
 .form-control {
@@ -132,4 +131,29 @@ p.lead {
 .copyright {
     padding-top: 10px;
     padding-left:40px;
+}
+
+.logo {
+    text-align: center;
+}
+
+.banner-inner {
+    padding-top:20px
+}
+
+@media (min-width: 992px) {
+    .logo {
+        text-align: right
+    }
+    #main_heading {
+        text-align: left
+    }
+    .banner-inner {
+        padding-top:40px
+    }
+    
+}
+
+@media (max-width: 480px) and (orientation: landscape) {
+  
 }
