@@ -145,6 +145,18 @@ p.lead {
     color: #fff;
 }
 
+.add-friend-wrap {
+    padding-top: 10px
+}
+
+@media (max-width: 769px) {
+    .add-friend {
+        padding-top: 0;
+        margin-bottom: 15px;
+        display: inline-block
+    }
+}
+
 @media (min-width: 992px) {
     .logo,
     .footer-logo {
@@ -160,6 +172,10 @@ p.lead {
         text-align: left;
         padding-left:40px;
     }
+    .add-friend {
+        padding-top: 10px;
+        display: inline-block
+    }
 }
 
 @media (max-width: 480px) {
@@ -169,7 +185,7 @@ p.lead {
     } 
     h1,
     h1.blue {
-        font-size:30px
+        font-size:26px
     }
     #banner #main_heading {
         padding-top:20px
@@ -182,5 +198,10 @@ p.lead {
     }
     #banner #sub_heading {
         padding-top: 20px
+    }
+    .add-friend {
+        padding-top: 0;
+        margin-bottom: 15px;
+        display: inline-block
     }
 }
