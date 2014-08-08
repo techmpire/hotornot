@@ -4,16 +4,14 @@
     <div class="text-center">
         <h1 class="blue">Thanks for signing up!</h1>
         <p class="lead">
-            We'd like to meet your friends! Refer a friend to digitalX and you'll both earn<br/> bitcoins if they sign up.
+            We'd like to meet your friends! Refer a friend to digitalX and you'll both earn bitcoins if they sign up.
         </p>
         {% if error != '' %}
-            <div style="width:640px;margin:0 auto">
-                <div class="alert alert-danger">{{ error }}</div>
-            </div>
+            <div class="alert alert-danger">{{ error }}</div>
         {% endif %}
     </div>
-    <div class="form-container" style="width:640px">
-        <div style="padding:30px 50px 20px 30px">
+    <div class="form-container">
+        <div style="padding:30px">
             <form class="form-horizontal" role="form" method="post" action="/refer">
               <div id="field-wrap">
                   <div class="form-group friend-block">
