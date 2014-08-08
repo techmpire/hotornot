@@ -69,8 +69,8 @@
         } else {
             
             $user               = new User();
-            $user->first_name   = trim($post['first_name']);
-            $user->last_name    = trim($post['last_name']);
+            $user->first_name   = ucwords(trim($post['first_name']));
+            $user->last_name    = ucwords(trim($post['last_name']));
             $user->email        = trim($post['email']);
             $user->phone        = trim($post['phone']);
             $user->save();

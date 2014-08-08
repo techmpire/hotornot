@@ -165,6 +165,7 @@ p.lead {
 @media (max-width: 480px) {
     #logo-img {
         width:150px;
+        margin-top: 20px
     } 
     h1,
     h1.blue {
@@ -174,10 +175,10 @@ p.lead {
         padding-top:20px
     }
     #banner #main_heading h1 {
-        font-size:30px
+        font-size:21px
     }
     #banner #sub_heading h2 {
-        font-size: 24px
+        font-size: 20px
     }
     #banner #sub_heading {
         padding-top: 20px
