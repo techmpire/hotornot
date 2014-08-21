@@ -1,11 +1,27 @@
 html {
     position: relative;
     min-height: 100%;
+    
 }
 
 body {
-    color: #414042;
-    background: #f7f7f7;
+    /* color: #414042; */
+    /* background: #f7f7f7; */
+}
+
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .container {
@@ -13,7 +29,7 @@ body {
 }
 
 .form-container {
-    background:#013f54 url(/public/img/whiteX.png) no-repeat left top;
+    /* background:#013f54 url(/public/img/whiteX.png) no-repeat left top; */
     /* margin: 0 auto; */
     border-radius: 4px;
     /* width:690px; */
@@ -37,19 +53,21 @@ label {
 h1 {
     font-weight: bold;
     font-size: 60px;
-    color: #414042;
+    color: #000;
+    margin-top:0;
+    font-family: 'Montserrat', sans-serif;
 }
 
-h1.blue {
-    color:#007FA9;
+h1.white {
+    color:#fff;
     margin-top:30px;
     font-size: 40px;
 }
 
 #banner {
     position:relative;
-    height:280px;
-    background:#013f54 url(/public/img/header.jpg) no-repeat center top;
+    height:920px;
+    /* background:url(/public/img/header.jpg) no-repeat center top; */
     color:#fff;
 }
 
@@ -117,6 +135,25 @@ p.lead {
     border-radius: 0;
 }
 
+.learn-more {
+    margin-top:80px;
+    display: inline-block;
+    font-size:20px;
+}
+
+.btn.btn-default{
+   background: #99cd00;
+   border-color: #6a9700;
+   width:390px;
+   padding:20px 0;
+   font-weight: bold;
+}
+
+.btn.btn-default:hover,
+.btn.btn-default:active{
+    color:#fff;
+}
+
 .satoshi-info {
     padding-top: 6px;
     color:#b2c5c9;
@@ -130,6 +167,14 @@ p.lead {
     padding-top: 10px;
     padding-left:0px;
     text-align: center
+}
+
+#logo {
+    margin:90px 0;
+}
+
+.intro-text {
+    font-weight: bold;
 }
 
 .logo, 
@@ -184,7 +229,7 @@ p.lead {
         margin-top: 20px
     } 
     h1,
-    h1.blue {
+    h1.white {
         font-size:26px
     }
     #banner #main_heading {
