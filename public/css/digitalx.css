@@ -201,6 +201,22 @@ p.lead {
     padding-top: 10px
 }
 
+a.fb:link {
+    display: block;
+    height: 56px;
+    width:243px;
+    background: url(/public/img/fb.png) no-repeat;
+    margin:0 auto;
+}
+
+a.fb:active, a.fb:hover, a.fb:visited {
+    display: block;
+    height: 56px;
+    width:243px;
+    background: url(/public/img/fb.png) no-repeat 0 -60px;
+    margin:0 auto;
+}
+
 @media (max-width: 769px) {
     .add-friend {
         padding-top: 0;
