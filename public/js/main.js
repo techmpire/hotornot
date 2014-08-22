@@ -43,8 +43,10 @@ VEGAS Home Slider
     $.vegas('slideshow', {
         backgrounds:[
         
-        { src:'/public/img/header5.jpg', fade:500 }
+        { src:'/public/img/header_alternate.jpg', fade:500 }
         ]
+      })('overlay', {
+        src:'/public/img/16.png'
       });
     
    

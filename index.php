@@ -30,11 +30,15 @@
     );
     
     $app->get('/', function () use ($app) {
-        $app->render('home.html');
+        $app->render('home.html', array(
+            'countries' => Country::all()
+        ));
     });
     
     $app->get('/home', function () use ($app) {
-        $app->render('home.html');
+        $app->render('home.html', array(
+            'countries' => Country::all()
+        ));
     });
     
     $app->post('/home', function () use ($app) {
@@ -46,6 +50,7 @@
         if ($post['first_name'] == '' || $post['last_name'] == '' || $post['email'] == '') {
             
             $app->render('home.html', array(
+                'countries' => Country::all(),
                 'post' => $post,
                 'error' => 'Please fill out all mandatory fields'
             ));
@@ -54,6 +59,7 @@
         } elseif (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
             
             $app->render('home.html', array(
+                'countries' => Country::all(),
                 'post' => $post,
                 'error' => 'Please enter a valid email'
             ));
@@ -62,6 +68,7 @@
         } elseif (is_object($user)) {
             
             $app->render('home.html', array(
+                'countries' => Country::all(),
                 'post' => $post,
                 'error' => 'A user with that email has already registered'
             ));
@@ -73,6 +80,7 @@
             $user->last_name    = ucwords(trim($post['last_name']));
             $user->email        = trim($post['email']);
             $user->phone        = trim($post['phone']);
+            $user->country      = trim($post['country']);
             $user->save();
             
             $_SESSION['digitalx_hash'] = $user->hash;
@@ -86,6 +94,10 @@
                 'EmailAddress' => $user->email,
                 'Name' => $user->first_name . ' ' . $user->last_name,
                 'CustomFields' => array(
+                    array(
+                        'Key' => 'Country',
+                        'Value' => Country::find($user->country)->printable_name
+                    ),
                     array(
                         'Key' => 'Phone',
                         'Value' => $user->phone
