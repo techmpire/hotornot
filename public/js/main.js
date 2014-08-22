@@ -7,23 +7,23 @@ $(document).ready(function(){
 ========================================================================== */
     
     
-    $("html").queryLoader2({
+    /*$("html").queryLoader2({
         barColor: "#111",
         backgroundColor: "#fff",
         percentage: true,
         barHeight: 3,
         completeAnimation: "fade",
         minimumTime: 200
-    });
+    });*/
 
-    $("body").fadeIn('slow')
+    $("body").fadeIn('fast');
 
 /* ==========================================================================
    Scroll about page
 ========================================================================== */
 $(".learn-more").click(function(event){     
         event.preventDefault();
-        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 1000);
+        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
     });
     
 
@@ -38,78 +38,6 @@ $(".learn-more").click(function(event){
     })
 
 
-/* ==========================================================================
-  Parallax
-========================================================================== */
-
-    $('#parallax-quote').parallax("50%", 0.8);
-    $('#parallax-connect').parallax("50%", 0.8);
-    $('.parallax-content').parallax("50%", 0.3);
-
-
-
-   
-
-/* ==========================================================================
-  Portfolio sorting 
-========================================================================== */
-
-  $(window).load(function(){
-    var $container = $('.grid-wrapper');
-    $container.isotope({
-        filter: '*',
-        animationOptions: {
-            duration: 750,
-            easing: 'linear',
-            queue: false
-        }
-    });
- 
-    $('.grid-controls li a').click(function(){
-        $('.grid-controls .current').removeClass('current');
-        $(this).addClass('current');
- 
-        var selector = $(this).attr('data-filter');
-        $container.isotope({
-            filter: selector,
-            animationOptions: {
-                duration: 750,
-                easing: 'linear',
-                queue: false
-            }
-         });
-         return false;
-    });
-});
-
-
-     $('.mix a').hover(
-               function(){ 
-                         $(this).find('.overlay').stop().slideDown(500);
-                         return false;
-               },
-               function(){
-                         $(this).find('.overlay').stop().slideUp(500);
-                         return false;
-               }
-     );
-
-
-
-/* ==========================================================================
-  Team
-========================================================================== */
-
-  $(".team-footer").mouseenter(function() {
-            $(".follow", this).stop().animate({top:70},'fast');
-            $(".follow", this).next().fadeIn()
-    });
-
-    $(".team-footer").mouseleave(function() {
-            $(".follow", this).stop().animate({top:0},'fast');
-            $(".follow", this).next().fadeOut()
-
-    });
 
 
 /* ==========================================================================

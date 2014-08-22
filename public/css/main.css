@@ -1180,6 +1180,7 @@ html[xmlns] .slides {display: block;}
     border: none;
 }
 
+/*
 .btn.btn-default{
     margin: 10px auto 0;
     position: relative;
@@ -1220,13 +1221,9 @@ form .btn.btn-default{
   -o-transition: all .1s ease-in-out;
   transition: all .1s ease-in-out;
 }
+*/
 
-.btn.btn-default:hover,
-.btn.btn-default:active{
-    background:#fff;
-    border-color: #fff;
-    color:fff;
-}
+
 
 input,.input-lg,button{
     border-radius:0;

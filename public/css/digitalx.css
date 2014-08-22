@@ -52,10 +52,11 @@ label {
 
 h1 {
     font-weight: bold;
-    font-size: 60px;
+    font-size: 40px;
     color: #000;
     margin-top:0;
     font-family: 'Montserrat', sans-serif;
+    letter-spacing: -2px;
 }
 
 h1.white {
@@ -144,14 +145,16 @@ p.lead {
 .btn.btn-default{
    background: #99cd00;
    border-color: #6a9700;
-   width:390px;
-   padding:20px 0;
+   color:#fff;
+   padding:20px 100px;
    font-weight: bold;
+   font-family: 'Montserrat', sans-serif;
 }
 
 .btn.btn-default:hover,
 .btn.btn-default:active{
     color:#fff;
+    background-color: #8ebe00;
 }
 
 .satoshi-info {
@@ -170,11 +173,14 @@ p.lead {
 }
 
 #logo {
-    margin:90px 0;
+    margin:110px 0 90px 0;
 }
 
 .intro-text {
-    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size:22px;
+    line-height: 30px;
 }
 
 .logo, 

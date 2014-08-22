@@ -3,8 +3,8 @@
 {% block content %}
     <div class="text-center">
         <h1 class="white">How to receive your free bitcoins</h1>
-        <p class="lead">
-            Pre-enroll now to be first to have access to digitalX, launching towards the end of 2014. You'll enjoy rock solid security and ease of use unlike anything else. Fill out the fields below to get free bitcoins*
+        <p class="lead" style="color:#fff">
+            Pre-enroll now to be first to have access to digitalX and receive $10 worth of Bitcoin free
         </p>
         {% if error != '' %}
             <div class="alert alert-danger">{{ error }}</div>
@@ -18,38 +18,36 @@
                 <label for="firstname" class="col-sm-4 control-label">Your First name*</label>
                 <div class="col-sm-6">
                   <input type="text" name="first_name" class="form-control" id="firstname" placeholder="enter your first name" value="{{ post.first_name }}">
-                  <small class="help-block">Get 10 satoshis**</small>
                 </div>
               </div>
                <div class="form-group">
                 <label for="lastname" class="col-sm-4 control-label">Your Last name*</label>
                 <div class="col-sm-6">
                   <input type="text" name="last_name" class="form-control" id="lastname" placeholder="enter your last name" value="{{ post.last_name }}">
-                  <small class="help-block">Get 10 satoshis**</small>
                 </div>
               </div>
-               <div class="form-group" style="margin-bottom:0">
+               <div class="form-group">
                 <label for="email" class="col-sm-4 control-label">Your Email*</label>
                 <div class="col-sm-6">
                   <input type="text" name="email" class="form-control" id="email" placeholder="enter your email address" value="{{ post.email }}">
-                  <small class="help-block"><span class="white">We will need to notify you following the launch.</span><br/>Get 10 satoshis**</small>
                 </div>
               </div>
               <div class="form-group">
                 <label for="email" class="col-sm-4 control-label">Your Mobile Phone</label>
                 <div class="col-sm-6">
                   <input type="text" name="phone" class="form-control" id="phone" placeholder="enter your mobile number" value="{{ post.phone }}">
-                  <small class="help-block"><span class="white">Your mobile phone number is required to claim your bitcoins.</span><br/>Get 10 satoshis**</small>
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-6">
-                    <button type="submit" class="btn btn-success btn-lg btn-block">
-                        Sign me up <span class="glyphicon glyphicon-chevron-right"></span>
+                    <button type="submit" class="btn btn-default btn-lg btn-block">
+                        SIGN ME UP
                     </button>
-                    <div class="satoshi-info text-center">
+                    <!--
+<div class="satoshi-info text-center">
                         <small>** A Satoshi is the smallest fraction of a bitcoin that can currently be sent.</small>
                     </div>
+-->
                 </div>
               </div>
             </form>
@@ -58,7 +56,7 @@
 
     <div class="text-center form-footer">
         <small class="text-muted">
-            * Following the launch of digitalX, users will be credited their bitcoins upon completion of the pre-enrollment process and activation of their digitalX wallet.
+            <!-- * Following the launch of digitalX, users will be credited their bitcoins upon completion of the pre-enrollment process and activation of their digitalX wallet. -->
         </small>
     </div>
 
