@@ -3,9 +3,13 @@
 {% block content %}
     <div class="text-center">
         <h1 class="white">How to receive your free bitcoins</h1>
-        <p class="lead" style="color:#fff">
-            Pre-enroll now to be first to have access to digitalX and receive $10 worth of Bitcoin free
+        <div class="step">
+            <img src="/public/img/step1.png" border=0 title="" alt="">
+        </div>
+        <p class="lead">
+            Pre-enroll now to be first to have access to digitalX and receive<br/>$10 worth of Bitcoin free
         </p>
+        
         {% if error != '' %}
             <div class="alert alert-danger">{{ error }}</div>
         {% endif %}

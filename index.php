@@ -109,7 +109,9 @@
         if (empty($_SESSION['digitalx_hash'])) 
             $app->response->redirect('/home');
         else
-            $app->render('refer.html');
+            $app->render('refer.html', array(
+                'page' => 'refer'
+            ));
             
     });
     
@@ -190,7 +192,9 @@
     
     $app->get('/thankyou', function () use ($app) {
         $_SESSION['digitalx_hash'] = '';
-        $app->render('thankyou.html');
+        $app->render('thankyou.html', array(
+                'page' => 'thankyou'
+            ));
     });
     
     $app->run();

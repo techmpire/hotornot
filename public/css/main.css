@@ -237,6 +237,7 @@ h1,h2,h3,h4,h5,h6{
 
 #page-contact{
     padding: 75px 0;
+    background:#434345 url(/public/img/up_arrow.png) no-repeat center top;
 }
 
 #page-contact .contact-info p{

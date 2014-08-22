@@ -99,12 +99,9 @@ h1.white {
     font-size:28px;
 }
 
-#chevron {
-    padding-top:30px
-}
-
 .form-control {
     border-radius: 0;
+    padding: 24px 12px;
 }
 
 textarea:focus, 
@@ -129,9 +126,13 @@ input[type="color"]:focus,
 }
 
 p.lead {
-    margin-bottom:40px
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
 }
 
+.step {
+    margin:20px 0
+}
 .btn {
     border-radius: 0;
 }
@@ -224,7 +225,7 @@ p.lead {
         padding-left:40px;
     }
     .add-friend {
-        padding-top: 10px;
+        padding-top: 20px;
         display: inline-block
     }
 }
