@@ -1,8 +1,10 @@
+/*
 html {
     position: relative;
     min-height: 100%;
     
 }
+*/
 
 /*
 html { 
@@ -192,6 +194,8 @@ p.lead {
     font-weight: 400;
     font-size:22px;
     line-height: 30px;
+    margin-top: 55px;
+    color:#000;
 }
 
 .logo, 
@@ -227,6 +231,10 @@ a.fb:active, a.fb:hover, a.fb:visited {
     margin:0 auto;
 }
 
+iframe {
+    display: none;
+}
+
 @media (max-width: 769px) {
     .add-friend {
         padding-top: 0;
@@ -254,13 +262,56 @@ a.fb:active, a.fb:hover, a.fb:visited {
         padding-top: 20px;
         display: inline-block
     }
+    #firstname_label {
+        padding-top:45px
+    }
+    /* latest */
+    #logo {
+        margin:50px 0 30px 0;
+    }
+    .intro-text {
+        margin-top: 40px;
+    }
+    .learn-more {
+        margin-top:50px;
+    }
 }
 
+/*
+@media (max-width: 1024px) {
+    #logo {
+        margin:50px 0 30px 0;
+    }
+    .intro-text {
+        margin-top: 55px;
+    }
+    .learn-more {
+        margin-top:50px;
+    }
+}
+*/
+
 @media (max-width: 480px) {
-    #logo-img {
+    #logo {
         width:150px;
-        margin-top: 20px
+        margin-top: 20px;
+        margin-bottom: 20px;
     } 
+    .intro-text {
+        color:#efefef;
+        font-size:16px;
+        margin-top: 0px;
+        line-height: 22px;
+    }
+    #firstname_label {
+        position: relative;
+        top:60px;
+        padding-top:20px;
+    }
+    .lead {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
     h1,
     h1.white {
         font-size:26px

@@ -7,8 +7,9 @@
             <img src="/public/img/step2.png" border=0 title="" alt="">
         </div>
         <p class="lead">
-            We'd like to meet your friends! Refer a friend to digitalX and you'll both earn bitcoins if they sign up.
+            We'd like to meet your friends! Refer a friend to digitalX and be entered for a chance to win a brand new Apple iPad Air. The more friends you refer, the more chances you will have to win!*<!-- you'll both earn bitcoins if they sign up. -->
         </p>
+        <img src="/public/img/ipad.png" border=0 title="" alt="" width="250">
         {% if error != '' %}
             <div class="alert alert-danger">{{ error }}</div>
         {% endif %}
@@ -20,28 +21,28 @@
                   <div class="form-group friend-block">
                     <label for="firstname" class="col-sm-2 control-label">Friend #1</label>
                     <div class="col-sm-5">
-                      <input type="text" name="names[]" class="form-control" placeholder="enter your friends name">
+                      <input type="text" name="names[]" class="form-control" placeholder="Name">
                     </div>
                     <div class="col-sm-5">
-                      <input type="text" name="emails[]" class="form-control" placeholder="enter your friends email">
+                      <input type="text" name="emails[]" class="form-control" placeholder="Email">
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="firstname" class="col-sm-2 control-label">Friend #2</label>
                     <div class="col-sm-5">
-                      <input type="text" name="names[]" class="form-control" placeholder="enter your friends name">
+                      <input type="text" name="names[]" class="form-control" placeholder="Name">
                     </div>
                     <div class="col-sm-5">
-                      <input type="text" name="emails[]" class="form-control" placeholder="enter your friends email">
+                      <input type="text" name="emails[]" class="form-control" placeholder="Email">
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="firstname" class="col-sm-2 control-label">Friend #3</label>
                     <div class="col-sm-5">
-                      <input type="text" name="names[]" class="form-control" placeholder="enter your friends name">
+                      <input type="text" name="names[]" class="form-control" placeholder="Name">
                     </div>
                     <div class="col-sm-5">
-                      <input type="text" name="emails[]" class="form-control" placeholder="enter your friends email">
+                      <input type="text" name="emails[]" class="form-control" placeholder="Email">
                     </div>
                   </div>
               </div>
@@ -56,5 +57,14 @@
             </form>
         </div>
     </div>
+    
+    <div class="text-center form-footer">
+        <small class="text-muted">
+            * The prize is an iPad Air! The prize will be drawn on October 31st 2014. The winner will be notified by email. There can be multiple entries per person. Each friend referral grants one entry. Sharing on Facebook doubles the number of entries. The winner will be published on digitalX.com. The draw will be performed randomly by a computer. No private information will be shared with third parties.
+        </small>
+    </div>
+    
+    
+    
     {% include "footer.html" %}
 {% endblock %}

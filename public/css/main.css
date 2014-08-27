@@ -143,8 +143,9 @@ h1,h2,h3,h4,h5,h6{
 #page-welcome{
     width: 100%;
     height: 100%;
+    /* height: 1080px; */
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     text-align: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -943,7 +944,7 @@ html[xmlns] .slides {display: block;}
 
 .vegas-overlay {
     background: transparent url(../img/overlays/16.png);
-    opacity: 0.2;
+    opacity: 0.1;
     z-index: -1;
 }
 

@@ -6,9 +6,11 @@
     $app = new \Slim\Slim();
     
     require_once 'config.php';
+    require_once('recaptcha-php-1.11/recaptchalib.php');
+    /* ini_set("display_errors","1"); */
+    /* error_reporting(E_ALL^E_WARNING^E_NOTICE); */
     
-    ActiveRecord\Config::initialize(function($cfg) {
-        global $fig;
+    ActiveRecord\Config::initialize(function($cfg) use($fig) {
         $cfg->set_model_directory('models');
         $cfg->set_connections(array(
             'development' => 'mysql://' . $fig['user'] . ':' . $fig['pass'] . '@' . $fig['host'] . '/' . $fig['db']
@@ -29,48 +31,75 @@
         'autoescape'          => true
     );
     
-    $app->get('/', function () use ($app) {
+    $app->get('/', function () use ($app, $fig) {
+        $captcha = recaptcha_get_html($fig['captcha_public']);
         $app->render('home.html', array(
+            'captcha' => $captcha,
             'countries' => Country::all()
         ));
     });
     
-    $app->get('/home', function () use ($app) {
+    $app->get('/home', function () use ($app, $fig) {
+        $captcha = recaptcha_get_html($fig['captcha_public']);
         $app->render('home.html', array(
+            'captcha' => $captcha,
             'countries' => Country::all()
         ));
     });
     
-    $app->post('/home', function () use ($app) {
+    $app->post('/home', function () use ($app, $fig) {
         
         $post = $app->request->post();
         $user = User::find_by_email($post['email']);
         
-        // make sure no fields are blank
-        if ($post['first_name'] == '' || $post['last_name'] == '' || $post['email'] == '') {
+        $resp = recaptcha_check_answer(
+            $fig['captcha_private'],
+            $_SERVER["REMOTE_ADDR"],
+            $_POST["recaptcha_challenge_field"],
+            $_POST["recaptcha_response_field"]);
+          
+        /* make sure no fields are blank */
+        if ($post['first_name'] == '' || $post['last_name'] == '' || $post['email'] == '' || $post['country'] == '') {
             
+            $captcha = recaptcha_get_html($fig['captcha_public']);
             $app->render('home.html', array(
                 'countries' => Country::all(),
+                'captcha' => $captcha,
                 'post' => $post,
                 'error' => 'Please fill out all mandatory fields'
             ));
         
-        // make sure email is valid
+        /* make sure email is valid */
         } elseif (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
             
+            $captcha = recaptcha_get_html($fig['captcha_public']);
             $app->render('home.html', array(
                 'countries' => Country::all(),
+                'captcha' => $captcha,
                 'post' => $post,
                 'error' => 'Please enter a valid email'
             ));
         
-        // make sure user hasn't been signed up already
+        /* make sure user hasn't been signed up already */
         } elseif (is_object($user)) {
             
+            $captcha = recaptcha_get_html($fig['captcha_public']);
             $app->render('home.html', array(
                 'countries' => Country::all(),
+                'captcha' => $captcha,
                 'post' => $post,
                 'error' => 'A user with that email has already registered'
+            ));
+        
+        /* check captcha  */
+        } elseif (!$resp->is_valid) {
+            
+            $captcha = recaptcha_get_html($fig['captcha_public']);
+            $app->render('home.html', array(
+                'countries' => Country::all(),
+                'captcha' => $captcha,
+                'post' => $post,
+                'error' => 'Incorrect verification entered'
             ));
             
         } else {
