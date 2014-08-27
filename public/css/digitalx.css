@@ -298,15 +298,17 @@ iframe {
         margin-bottom: 20px;
     } 
     .intro-text {
-        color:#efefef;
-        font-size:16px;
+        font-size:15px;
         margin-top: 0px;
-        line-height: 22px;
+        line-height: 18px;
+        padding:20px 0
     }
     #firstname_label {
         position: relative;
-        top:60px;
-        padding-top:20px;
+        top:26px;
+    }
+    .alert {
+        margin-top:15px;
     }
     .lead {
         margin-bottom: 0;
@@ -314,7 +316,8 @@ iframe {
     }
     h1,
     h1.white {
-        font-size:26px
+        font-size:20px;
+        margin-bottom: 0
     }
     #banner #main_heading {
         padding-top:20px
@@ -332,5 +335,33 @@ iframe {
         padding-top: 0;
         margin-bottom: 15px;
         display: inline-block
+    }
+    #second-heading {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .btn.btn-default{
+       padding:20px 60px;
+    }
+    .learn-more {
+        margin-top:50px
+    }
+    #ipad {
+        margin-top:20px
+    }
+    #page-contact {
+        padding:0;
+    }
+    #recaptcha_image {
+        margin:0;
+        text-align: left;
+        padding:0;
+    }
+    #recaptcha_image img {
+        width:280px;
+        margin:0;
+        text-align: left;
+        float: left;
+        padding:0;
     }
 }
