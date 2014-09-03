@@ -28,8 +28,8 @@
     // To implement...
     $app->get('/track/cid/:cid/aid/:aid/sid/:sid', function ($cid, $aid, $sid) use ($app) {
 
-        $thankyou = 'http://devtest.local/thankyou/camp/{cid}/aff/{aid}/pub/{pub}';
-        
+        $thankyou = 'http://devtest.local/thankyou/camp/{cid}/aff/{aid}/pub/{sid}';
+
     });
     
     // To implement...
