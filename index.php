@@ -26,7 +26,7 @@
     });
     
     // To implement...
-    $app->get('/track/cid/:cid/aid/:aid/sid/:sid', function ($cid, $aid, $sid) use ($app) {
+    $app->get('/track/cid/:cid/aid/:aid/sid/:sid', function () use ($app) {
 
         $thankyou_template = 'http://devtest.local/thankyou/camp/[-cid-]/aff/[-aid-]/pub/[-sid-]';
 
